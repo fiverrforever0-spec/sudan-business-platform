@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap");
+
+* {
+  border-color: theme("colors.border");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: theme("colors.bg");
+  color: theme("colors.ink");
+  font-family: var(--font-plex), "IBM Plex Sans Arabic", sans-serif;
+  font-feature-settings: "tnum" 1;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-tajawal), "Tajawal", sans-serif;
+}
+
+::selection {
+  background: theme("colors.rust.DEFAULT");
+  color: theme("colors.sand");
+}
+
+/* thin, warm scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: theme("colors.border");
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: theme("colors.rust.dark"); }
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid theme("colors.gold.DEFAULT");
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Signature element: the journey path (تيك توك → فيسبوك → واتساب) ---- */
+.journey-path-line {
+  stroke: theme("colors.gold.DEFAULT");
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 6 8;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: theme("backgroundImage.grain");
+}
+
+.card-surface {
+  background: theme("colors.bg-card");
+  border: 1px solid theme("colors.border");
+}
+
+.stat-figure {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-tajawal), "Tajawal", sans-serif;
+}
